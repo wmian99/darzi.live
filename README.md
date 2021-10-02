@@ -30,5 +30,9 @@ Backend Repo for Darzi.live Web Dashboard.
 5. 1 Order belongs to One Customer
 6. 1 Order belongs to One Tailor
 
+## Main Branch 
+All the code is in master branch
+For upcoming features make your new branch and merge it in master and finally to main before deploying
+
 ## For any assistance
 Feel free to reach out to me on wmian99@gmail.com
