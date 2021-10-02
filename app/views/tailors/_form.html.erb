@@ -1,0 +1,73 @@
+<%= form_with(model: tailor, local: true) do |form| %>
+  <% if tailor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tailor.errors.count, "error") %> prohibited this tailor from being saved:</h2>
+
+      <ul>
+      <% tailor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group"> 
+
+    <%= form.text_field :name, id: :tailor_name,class: "form-control", placeholder: "Tailor Name"  %>
+  </div>
+
+   <div class="field form-group">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="field form-group">
+
+    <%= form.text_field :email, id: :tailor_email, class: "form-control",placeholder: "Tailor Email"%>
+  </div>
+
+  <div class="field form-group">
+
+    <%= form.text_field :phone, id: :tailor_phone,  class: "form-control",placeholder: "Tailor Phone"%>
+  </div>
+
+  <div class="field form-group">
+
+    <%= form.password_field :password, id: :tailor_password ,  class: "form-control",placeholder: "Password"%>
+  </div>
+
+
+    <%= form.password_field :confirm_password, id: :tailor_confirm_password , class: "form-control",placeholder: "Confirm Password"%>
+  </div>
+  <br>
+
+  <div class="field form-group">
+
+    <%= form.text_area :address, id: :tailor_address,  class: "form-control",placeholder: "Shop Address" %>
+  </div>
+
+  <div class="field form-group">
+
+    <%= form.text_field :shop_name, id: :tailor_shop_name, class: "form-control",placeholder: "Shop Name" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :shop_images %>
+    <%= form.file_field :shop_images %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :cnic_images %>
+    <%= form.file_field :cnic_images %>
+  </div>
+
+  <div class="field form-group">
+
+    <%= form.text_field :city, id: :tailor_city , class: "form-control",placeholder: "City"%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:'btn btn-primary' %>
+    <button class="btn btn-warning" > <%= link_to 'Back', tailors_path %> </button>
+  </div>
+<% end %>

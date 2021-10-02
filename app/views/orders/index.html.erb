@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+ 
+</head>
+
+<body>
+  <br><br/>
+  <h2 style="color:rebeccapurple;padding-left: 20px;">Listing All Tailors!</h2>
+  <br>
+
+  <h1>Orders</h1>
+  <p id="notice"><%= notice %></p>
+
+
+  <table class="table table-striped table table-bordered table table-hover">
+    <thead class="table-dark">
+
+      <tr>
+        <th>Order ID</th>
+        <th>Category</th>
+        <th> Status </th>
+        <th>Customer</th>
+        <th>Tailor</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+  
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= link_to order.id, order  %></td>
+        <td><%= order.category %></td>
+        <td><%= order.status%> </td>
+        <td><%= link_to order.customer.fname, customer_path(order.customer)  %></td>
+        <td><%= link_to order.tailor.name, tailor_path(order.tailor) %></td>
+        <% if current_user %>
+        <td><%= link_to 'Edit', edit_order_path(order), class:"btn btn-success btn-sm"  %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure to delete this Order? ' } , class:"btn btn-danger btn-sm" %></td>
+        <% end%>
+      </tr>
+    <% end %>
+</table>
+
+<br>
+
+<% if current_user %>
+    <button type="button" class="btn btn-warning btn-lg" style="background-color:lightsteelblue; "> <%= link_to 'New Order', new_order_path %>  </button>
+<%end%>
+</body>
+
+</html>

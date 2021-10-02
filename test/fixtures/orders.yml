@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  notes: MyText
+  customer: one
+  tailor: one
+
+two:
+  type: 
+  notes: MyText
+  customer: two
+  tailor: two

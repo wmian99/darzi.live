@@ -1,6 +1,12 @@
 class CustomersController < ApplicationController
+  before_action :authenticate_user!, except:[:index]
+
   def index
     @customers = Customer.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @customers}
+    end
   end
 
   def show
@@ -13,7 +19,7 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-    if @customer.save
+    if @customer.save && (customer_params[:password] == customer_params[:confirm_password])
       redirect_to customers_path
     else
       render :new
@@ -44,6 +50,6 @@ class CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:fname,:lname,:phone,:email,:password,:confirm_password,:address)
+    params.require(:customer).permit(:fname,:lname,:phone,:email,:password,:confirm_password,:address, :image)
   end
 end

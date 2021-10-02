@@ -1,0 +1,86 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tailor.name %>
+</p>
+
+<div style="text-align: left;">
+  <% if @tailor.image.attached? %>
+    <%= image_tag(@tailor.image, style:"width:275px;margin-left:25px;") %>
+  <% end %> <br/> <br> <br>
+  <h2> CNIC Image </h2>
+  <% if @tailor.cnic_images.attached? %>
+    <%= image_tag(@tailor.cnic_images, style:"width:250px;margin-left:35px;") %>
+  <%end%> <br> <br>
+</div>
+
+<p>
+  <strong>Email:</strong>
+  <%= @tailor.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @tailor.phone %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @tailor.password %>
+</p>
+
+<p>
+  <strong>Confirm password:</strong>
+  <%= @tailor.confirm_password %>
+</p>
+
+<p>
+  <strong>Shop name:</strong>
+  <%= @tailor.shop_name %>
+</p>
+<br> <h3> Shop Images </h3>
+
+<div style="text-align: left;">
+  <% if @tailor.shop_images.attached? %>
+    <%= image_tag(@tailor.shop_images, style:"width:275px;margin-left:25px;") %>
+  <% end %>
+</div>
+
+<br>
+
+<p>
+  <strong>Address:</strong>
+  <%= @tailor.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @tailor.city %>
+</p>
+
+
+<% if current_user %>
+
+<h3> Orders: </h3>
+
+<table class="table table-striped table table-bordered table table-hover">
+  <thead>
+    <td> OrderCategory</td>
+    <td> Order Status</td>
+    <td> Tailor Name</td>
+  </thead>
+  <tbody>
+    <% @tailor.orders.each do |ord| %>
+    <tr>
+      <td> <%= ord.category %> </td>
+      <td> <%= ord.status%> </td>
+      <td> <%= ord.tailor.name%> </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+<% end%>
+
+<%= link_to 'Edit', edit_tailor_path(@tailor) , class:"btn btn-danger"%> 
+<%= link_to 'Back', tailors_path , class:"btn btn-success"%>

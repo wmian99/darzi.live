@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
 
+  resources :orders
+  resources :tailors
+  devise_for :users
   get 'welcome/index', to: "welcome#index"
 
-  root "welcome#index"
+  root "customers#index"
 
   resources :customers
 

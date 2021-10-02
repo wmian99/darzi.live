@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+ 
+</head>
+
+<body>
+  <br><br/>
+  <h2 style="color:rebeccapurple;padding-left: 20px;">Listing All Tailors!</h2>
+  <br>
+
+
+  <table class="table table-striped table table-bordered table table-hover">
+    <thead class="table-dark">
+      <tr>
+        <td> Name </td>
+        <td> Shop Name </td>
+        <td> Email </td>
+        <td> Phone </td>
+      </tr>
+    </thead>
+  <% @tailors.each do |tail|%> 
+    <tr>
+      <td> <%= link_to tail.name, tailor_path(tail) %> </td>
+      <td> <%= tail.shop_name %></td>
+      <td> <%= tail.email %></td>
+      <td> <%= tail.phone %></td>
+      <% if current_user %>
+        <td>  <%= link_to 'EDIT' , edit_tailor_path(tail), class:"btn btn-success btn-sm" %> </td>
+        <td> <%= link_to 'DELETE' , tailor_path(tail), method: :delete, data: { confirm: "Are you sure?"} , class:"btn btn-danger btn-sm" %> </td>
+      <% else %>
+      <% end %>
+    </tr>
+  <% end %>
+  </table>
+
+  <% if current_user %>
+    <button type="button" class="btn btn-warning btn-lg" style="background-color:lightsteelblue; "> <%= link_to 'Add New Tailer', new_tailor_path %>  </button>
+  <%end%>
+  </body>
+ </html>

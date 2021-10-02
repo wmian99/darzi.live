@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @order.category %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @order.notes %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @order.customer.fname %>
+</p>
+
+<p>
+   <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<p>
+  <strong>Tailor:</strong>
+  <%= @order.tailor.name %>
+</p>
+<% if current_user %>
+  <%= link_to 'Edit', edit_order_path(@order) , class:"btn btn-danger"%> 
+<%end%>
+<%= link_to 'Back', orders_path , class:"btn btn-success"%>
