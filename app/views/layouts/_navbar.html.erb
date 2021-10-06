@@ -19,13 +19,14 @@
           <%= link_to "Orders", orders_path, class:"nav-link" %> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
         </li> 
 
+
         <% if current_user %>
            
-            <button class="btn btn-danger"  style="margin-left: 315%;"> <%= link_to 'SignOut', destroy_user_session_path, method: :delete, style:"color:white;" %> </button>
+            <button class="btn btn-danger"  style="margin-left: 325%;"> <%= link_to 'SignOut', destroy_user_session_path, method: :delete, style:"color:white;" %> </button>
           
         <% else %>
            
-            <button class="btn btn-success" style="margin-left: 230%; margin-right: 5%;" > <%= link_to 'SignUp', new_user_registration_path, style:"color:white;" %> </button>
+            <button class="btn btn-success" style="margin-left: 270%; margin-right: 5%;" > <%= link_to 'SignUp', new_user_registration_path, style:"color:white;" %> </button>
          
 
           
@@ -35,9 +36,5 @@
       
       
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
